@@ -1,12 +1,56 @@
-- 👋 Hi, I’m @Linh8386
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+using System;
 
-<!---
-Linh8386/Linh8386 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+public class Shape
+{
+    private string color;
+    private bool filled;
+    public Shape()
+    {
+        color = "green";
+        filled = true;
+    }
+    public Shape(string color, bool filled)
+    {
+        this.color = color;
+        this.filled = filled;
+    }
+    public string GetColor()
+    {
+        return color;
+    }
+
+    public void SetColor(string color)
+    {
+        this.color = color;
+    }
+    public bool IsFilled()
+    {
+        return filled;
+    }
+
+    public void SetFilled(bool filled)
+    {
+        this.filled = filled;
+    }
+    public override string ToString()
+    {
+        string filledStatus = filled ? "filled" : "not filled";
+        return $"A Shape with color of {color} and {filledStatus}.";
+    }
+}
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Shape shape1 = new Shape();
+        Console.WriteLine("Default Shape:");
+        Console.WriteLine(shape1.ToString()); 
+        Shape shape2 = new Shape("blue", false);
+        Console.WriteLine("\nCustom Shape:");
+        Console.WriteLine(shape2.ToString());
+        shape2.SetColor("red");
+        shape2.SetFilled(true);
+        Console.WriteLine("\nModified Shape:");
+        Console.WriteLine(shape2.ToString());
+    }
+}
